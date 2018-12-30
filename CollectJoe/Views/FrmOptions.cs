@@ -11,6 +11,10 @@ namespace CollectJoe.Views
       InitializeComponent();
     }
 
+    /// <summary>
+    /// Retourniert die Anzahl horizontaler Boxen
+    /// </summary>
+    /// <returns>Retourniert die Anzahl horizontaler Boxen</returns>
     public int GetHorizontal()
     {
       if (nudHorizontal.Value > 20) return 20;
@@ -19,6 +23,10 @@ namespace CollectJoe.Views
       return 20;
     }
 
+    /// <summary>
+    /// Retourniert die Anzahl vertikaler Boxen
+    /// </summary>
+    /// <returns>Retourniert die Anzahl vertikaler Boxen</returns>
     public int GetVertical()
     {
       if (nudVertical.Value > 10 || nudVertical.Value < 1) return 10;
@@ -26,11 +34,20 @@ namespace CollectJoe.Views
       return 10;
     }
 
+    /// <summary>
+    /// Retourniert die (maximale) Spielzeit in Millisekunden
+    /// </summary>
+    /// <returns>Retourniert die (maximale) Spielzeit in Millisekunden</returns>
     public int GetMaxPlaytime()
     {
       return (int)nudMaxPlaytime.Value * 1000;
     }
 
+    /// <summary>
+    /// Retourniert die Wertung der angegebenen Box
+    /// </summary>
+    /// <param name="boxName">Der Name des NumericUpDown Feldes</param>
+    /// <returns>Gibt die Wertung der Box zurück oder 1 wenn sie nicht gefunden wurde</returns>
     public int GetValue(string boxName)
     {
       switch (boxName)
@@ -42,6 +59,11 @@ namespace CollectJoe.Views
       }
     }
 
+    /// <summary>
+    /// Retourniert die Farbe der angegebenen Box
+    /// </summary>
+    /// <param name="boxName">Der Name des Button Feldes</param>
+    /// <returns>Gibt die Farbe der Box zurück oder <see cref="Color.Black"/> wenn sie nicht gefunden wurde</returns>
     public Color GetColor(string boxName)
     {
       switch (boxName)
@@ -55,6 +77,11 @@ namespace CollectJoe.Views
       }
     }
 
+    /// <summary>
+    /// Überprüft ob alle Farben einmalig sind und gibt eine passende Fehlermeldung aus
+    /// sollte dies nicht der Fall sein
+    /// </summary>
+    /// <returns>Gibt <see cref="true"/> zurück wenn die Überprüfung erfolgreich war</returns>
     private bool UniqueColorCheck()
     {
       if (btnColorBoxes.BackColor == btnColorField.BackColor) return ShowColorMatchError(lblColorBoxes.Text, lblColorField.Text);
@@ -70,23 +97,47 @@ namespace CollectJoe.Views
       return true;
     }
 
-    private bool ShowColorMatchError(string color1, string color2)
+    /// <summary>
+    /// Zeigt eine Fehlermeldung, wenn die Farben nicht einmalig sind.
+    /// </summary>
+    /// <param name="colorBox1">Beschreibung der ersten Box</param>
+    /// <param name="colorBox2">Beschreibung der zweiten Box</param>
+    /// <returns>Gibt 'false' zurück</returns>
+    private bool ShowColorMatchError(string colorBox1, string colorBox2)
     {
-      MessageBox.Show(String.Format("'{0}' hat die gleiche Farbe wie '{1}'", color1, color2), "Fehler", MessageBoxButtons.OK);
+      MessageBox.Show(String.Format("'{0}' hat die gleiche Farbe wie '{1}'", colorBox1, colorBox2), "Fehler", MessageBoxButtons.OK);
       return false;
     }
 
+    /// <summary>
+    /// Zeigt einen <see cref="ColorDialog"/> um die Farbe anzupassen und
+    /// übernimmt sie falls notwendig
+    /// </summary>
+    /// <param name="sender">Der Farb-Button</param>
+    /// <param name="e">Die Event Argumente</param>
     private void BtnColor_Click(object sender, EventArgs e)
     {
       clrDialog.Color = ((Button)sender).BackColor;
       if (clrDialog.ShowDialog() == DialogResult.OK) ((Button)sender).BackColor = clrDialog.Color;
     }
 
+    /// <summary>
+    /// Überprüft ob alle Farben einmalig sind und versteckt das Fenster
+    /// wenn die Überprüfung erfolgreich ist
+    /// </summary>
+    /// <param name="sender">Der 'Übernehmen' Button</param>
+    /// <param name="e">Die Event Argumente</param>
     private void BtnUse_Click(object sender, EventArgs e)
     {
       if (UniqueColorCheck()) Hide();
     }
 
+    /// <summary>
+    /// Überprüft ob alle Farben einmalig sind und versteckt das Fenster
+    /// wenn die Überprüfung erfolgreich ist
+    /// </summary>
+    /// <param name="sender">Der 'X' Button</param>
+    /// <param name="e">Die Event Argumente</param>
     private void FrmOptions_FormClosing(object sender, FormClosingEventArgs e)
     {
       e.Cancel = true;

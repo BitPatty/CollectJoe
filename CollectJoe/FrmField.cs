@@ -11,29 +11,30 @@ namespace CollectJoe
 {
   public partial class frmField : Form
   {
-    private readonly frmOptions _optionsForm;
-    private readonly frmEditScore _editScoreForm;
-    private readonly frmScoreList _scoreListForm;
+    private readonly frmOptions _optionsForm;            //Attribut-ID 1
+    private readonly frmEditScore _editScoreForm;        //Attribut-ID 2
+    private readonly frmScoreList _scoreListForm;        //Attribut-ID 3
 
-    private readonly Random _random = new Random();
-    private int _maxPlayTime = 39999;
-    private int _currentPlayTime = 0;
-    private readonly string _scoreListPath;
+    private readonly Random _random = new Random();      //Attribut-ID 4
+    private int _maxPlayTime;                            //Attribut-ID 5
+    private int _currentPlayTime;                        //Attribut-ID 6
+    private readonly string _scoreListPath;              //Attribut-ID 7
 
-    private int _boxCountHorizontal;
-    private int _boxCountVertical;
+    private int _boxCountHorizontal;                     //Attribut-ID 8
+    private int _boxCountVertical;                       //Attribut-ID 9
 
-    private int _boxHeight;
-    private int _boxWidth;
+    private int _boxHeight;                              //Attribut-ID 10
+    private int _boxWidth;                               //Attribut-ID 11
 
-    private readonly int[] _gamePanelMargin = { 10, 10 };
-    private Color _boxColor;
+    private Color _boxColor;                             //Attribut-ID 12
 
-    private readonly List<Button> _boxList;
-    private int _lastFlippedButtonIndex;
+    private readonly List<Button> _boxList;              //Attribut-ID 13
+    private int _lastFlippedButtonIndex;                 //Attribut-ID 14
 
-    private readonly Dictionary<Color, int> _boxRatings;
-    private int _playerScore = 0;
+    private readonly Dictionary<Color, int> _boxRatings; //Attribut-ID 15
+    private readonly int[] _gamePanelMargin = { 10, 10 }; //Attribut-ID 16
+
+    private int _playerScore = 0;                        //Zusätliches Attribut
 
     public frmField()
     {
@@ -54,6 +55,9 @@ namespace CollectJoe
       _optionsForm.ShowDialog();
     }
 
+    /// <summary>
+    /// Übernimmt die Optionen aus dem <see cref="frmOptions"/> Form
+    /// </summary>
     public void SetOptions()
     {
       pnlPlayField.BackColor = _optionsForm.GetColor("btnColorField");
@@ -76,6 +80,12 @@ namespace CollectJoe
       }
     }
 
+    /// <summary>
+    /// Stopped das Game und gibt bei negativem Punktestand
+    /// 'Game Over!' aus. Bei positivem Punktestand wird
+    /// eine Fanfare abgespielt und das Formular zur Eintragung
+    /// geöffnet.
+    /// </summary>
     public void StopGame()
     {
       tmrGame.Stop();
@@ -85,7 +95,7 @@ namespace CollectJoe
       }
       else
       {
-        if (_playerScore > _scoreListForm.HighestScore)
+        if (_playerScore > _scoreListForm.GetCurrentHighScore())
         {
           using (SoundPlayer sp = new SoundPlayer(Properties.Resources.trumpet))
           {
@@ -99,6 +109,9 @@ namespace CollectJoe
       }
     }
 
+    /// <summary>
+    /// Baut das Spielfeld gemäss aktueller Konfiguration auf
+    /// </summary>
     public void BuildButtonField()
     {
       pnlPlayField.Controls.Clear();
@@ -126,11 +139,19 @@ namespace CollectJoe
       pnlPlayField.Controls.AddRange(_boxList.ToArray());
     }
 
+    /// <summary>
+    /// Zeigt eine Box mit 'Game Over!'
+    /// </summary>
     private void ShowGameOverBox()
     {
       MessageBox.Show("Game Over!", "Game Over!", MessageBoxButtons.OK);
     }
 
+    /// <summary>
+    /// Übernimmt die neuen Optionen und setzt das Feld neu auf
+    /// </summary>
+    /// <param name="sender">Ein <see cref="frmOptions"/> Form</param>
+    /// <param name="e">Die Event Argumente</param>
     private void BtnHideOptions_Click(object sender, EventArgs e)
     {
       if (!((frmOptions)sender).Visible)
@@ -140,6 +161,11 @@ namespace CollectJoe
       }
     }
 
+    /// <summary>
+    /// Addiert die Punkte sofern die angeklickte Box aufgedeckt ist.
+    /// </summary>
+    /// <param name="sender">Eine Box im Spielfeld</param>
+    /// <param name="e">Die Event Argumente</param>
     private void BtnBox_Click(object sender, EventArgs e)
     {
       Button btn = (Button)sender;
@@ -151,6 +177,11 @@ namespace CollectJoe
       }
     }
 
+    /// <summary>
+    /// Setzt das Spiel zurück und startet es neu
+    /// </summary>
+    /// <param name="sender">Der Start Button</param>
+    /// <param name="e">Die Event Argumente</param>
     private void BtnStart_Click(object sender, EventArgs e)
     {
       tmrGame.Stop();
@@ -163,16 +194,32 @@ namespace CollectJoe
       tmrGame.Start();
     }
 
+    /// <summary>
+    /// Zeigt das <see cref="frmScoreList"/> Form
+    /// </summary>
+    /// <param name="sender">Der 'Rangliste anzeigen' Button</param>
+    /// <param name="e">Die Event Argumente</param>
     private void BtnScore_Click(object sender, EventArgs e)
     {
       _scoreListForm.ShowDialog();
     }
 
+    /// <summary>
+    /// Zeigt das <see cref="frmOptions"/> Form
+    /// </summary>
+    /// <param name="sender">Der 'Einstellungen' Button</param>
+    /// <param name="e">Die Event Argumente</param>
     private void BtnOptions_Click(object sender, EventArgs e)
     {
       _optionsForm.ShowDialog();
     }
 
+    /// <summary>
+    /// Deckt die aktive Box zu und eine neue auf. Bei übertritt
+    /// der maximalen Spielzeit wird das Spiel beendet.
+    /// </summary>
+    /// <param name="sender">Der Game Timer</param>
+    /// <param name="e">Die Event Argumente</param>
     private void TmrGame_Tick(object sender, EventArgs e)
     {
       _currentPlayTime += tmrGame.Interval;

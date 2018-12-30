@@ -8,9 +8,13 @@ namespace CollectJoe.Views
   public partial class frmScoreList : Form
   {
     private readonly string _scoreListPath;
+    private int _highestScore;
 
-    public int HighestScore { get; private set; }
-
+    /// <summary>
+    /// Initialisiert das <see cref="frmScoreList"/> Form und setzt
+    /// die Rangliste auf
+    /// </summary>
+    /// <param name="scoreListPath">Der Pfad zur Ranglisten Datei</param>
     public frmScoreList(string scoreListPath)
     {
       InitializeComponent();
@@ -18,6 +22,15 @@ namespace CollectJoe.Views
       RefreshScore();
     }
 
+    /// <summary>
+    /// Retourniert den aktuellen Highscore
+    /// </summary>
+    /// <returns>Retourniert den aktuellen Highscore</returns>
+    public int GetCurrentHighScore() => _highestScore;
+
+    /// <summary>
+    /// Setzt die Rangliste neu auf
+    /// </summary>
     public void RefreshScore()
     {
       txtScoreList.ResetText();
@@ -27,6 +40,11 @@ namespace CollectJoe.Views
       else txtScoreList.Text = "Rangliste nicht verfügbar.";
     }
 
+    /// <summary>
+    /// Sortiert die Rangliste und gibt sie in der
+    /// entsprechenden Textbox wider
+    /// </summary>
+    /// <param name="scoreList">Array von Highscores in der Form name;punktzahl</note></param>
     private void PopulateScoreList(string[] scoreList)
     {
       List<Tuple<string, int>> scores = new List<Tuple<string, int>>();
@@ -42,12 +60,16 @@ namespace CollectJoe.Views
       }
 
       scores.Sort((s1, s2) => s2.Item2.CompareTo(s1.Item2));
-      HighestScore = scores[0].Item2;
+      _highestScore = scores[0].Item2;
 
       foreach (Tuple<string, int> entry in scores)
         txtScoreList.AppendText(string.Format("{0};{1}\r\n", entry.Item1, entry.Item2));
     }
 
+    /// <summary>
+    /// Lädt die Ranglisten Datei
+    /// </summary>
+    /// <returns>Gibt die Zeilen als Array zurück</returns>
     private string[] GetScoreFileContent()
     {
       try

@@ -77,7 +77,6 @@
       this.Name = "frmScoreList";
       this.Text = "Rangliste";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmScoreList_Closing);
-      this.VisibleChanged += new System.EventHandler(this.FrmScoreList_VisibleChanged);
       this.ResumeLayout(false);
       this.PerformLayout();
 

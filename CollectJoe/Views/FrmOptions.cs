@@ -26,6 +26,11 @@ namespace CollectJoe.Views
       return 10;
     }
 
+    public int GetMaxPlaytime()
+    {
+      return (int)nudMaxPlaytime.Value * 1000;
+    }
+
     public int GetValue(string boxName)
     {
       switch (boxName)

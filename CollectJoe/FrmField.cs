@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Windows.Forms;
 
 namespace CollectJoe
@@ -15,7 +16,7 @@ namespace CollectJoe
     private readonly frmScoreList _scoreListForm;
 
     private readonly Random _random = new Random();
-    private readonly int _maxPlayTime = 39999;
+    private int _maxPlayTime = 39999;
     private int _currentPlayTime = 0;
     private readonly string _scoreListPath;
 
@@ -40,14 +41,14 @@ namespace CollectJoe
 
       _scoreListPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "scorelist.txt");
 
-      if (!File.Exists(_scoreListPath)) File.Create(_scoreListPath);
-
       _optionsForm = new frmOptions();
       _editScoreForm = new frmEditScore(_scoreListPath);
       _scoreListForm = new frmScoreList(_scoreListPath);
 
       _boxList = new List<Button>();
       _boxRatings = new Dictionary<Color, int>();
+
+      _scoreListForm.RefreshScore();
 
       _optionsForm.VisibleChanged += BtnHideOptions_Click;
       _optionsForm.ShowDialog();
@@ -57,6 +58,7 @@ namespace CollectJoe
     {
       pnlPlayField.BackColor = _optionsForm.GetColor("btnColorField");
       _boxColor = _optionsForm.GetColor("btnColorBoxes");
+      _maxPlayTime = _optionsForm.GetMaxPlaytime();
 
       _boxCountHorizontal = _optionsForm.GetHorizontal();
       _boxCountVertical = _optionsForm.GetVertical();
@@ -83,8 +85,17 @@ namespace CollectJoe
       }
       else
       {
+        if (_playerScore > _scoreListForm.HighestScore)
+        {
+          using (SoundPlayer sp = new SoundPlayer(Properties.Resources.trumpet))
+          {
+            sp.Play();
+          }
+        }
+
         _editScoreForm.SetScore(txtScore.Text);
         _editScoreForm.ShowDialog();
+        _scoreListForm.RefreshScore();
       }
     }
 
@@ -105,8 +116,6 @@ namespace CollectJoe
             Location = new Point(k * _boxWidth, i * _boxHeight),
             Text = "",
             BackColor = _boxColor,
-            Padding = new Padding(0),
-            Margin = new Padding(0)
           };
 
           btn.Click += BtnBox_Click;

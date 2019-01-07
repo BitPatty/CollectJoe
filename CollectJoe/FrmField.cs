@@ -109,6 +109,8 @@ namespace CollectJoe
         _editScoreForm.ShowDialog();
         _scoreListForm.RefreshScore();
       }
+
+      _boxList[_lastFlippedButtonIndex].BackColor = _boxColor;
     }
 
     /// <summary>
@@ -182,7 +184,7 @@ namespace CollectJoe
     /// <param name="e">Die Event Argumente</param>
     private void BtnStart_Click(object sender, EventArgs e)
     {
-      tmrGame.Stop();
+      if (tmrGame.Enabled) tmrGame.Stop();
       _playerScore = 0;
       txtScore.Text = _playerScore.ToString();
       _currentPlayTime = 0;
@@ -199,6 +201,7 @@ namespace CollectJoe
     /// <param name="e">Die Event Argumente</param>
     private void BtnScore_Click(object sender, EventArgs e)
     {
+      if (tmrGame.Enabled) tmrGame.Stop();
       _scoreListForm.ShowDialog();
     }
 
@@ -209,6 +212,7 @@ namespace CollectJoe
     /// <param name="e">Die Event Argumente</param>
     private void BtnOptions_Click(object sender, EventArgs e)
     {
+      if (tmrGame.Enabled) tmrGame.Stop();
       _optionsForm.ShowDialog();
     }
 
@@ -222,7 +226,7 @@ namespace CollectJoe
     {
       _currentPlayTime += tmrGame.Interval;
 
-      if (_currentPlayTime > _maxPlayTime)
+      if (_currentPlayTime >= _maxPlayTime)
       {
         StopGame();
       }

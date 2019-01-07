@@ -52,13 +52,13 @@ namespace CollectJoe
       _scoreListForm.RefreshScore();
 
       _optionsForm.VisibleChanged += BtnHideOptions_Click;
-      _optionsForm.ShowDialog();
+      SetupPlayField();
     }
 
     /// <summary>
-    /// Übernimmt die Optionen aus dem <see cref="frmOptions"/> Form
+    /// Übernimmt die Optionen aus dem <see cref="frmOptions"/> Form und baut das Spielfeld auf
     /// </summary>
-    public void SetOptions()
+    public void SetupPlayField()
     {
       pnlPlayField.BackColor = _optionsForm.GetColor("btnColorField");
       _boxColor = _optionsForm.GetColor("btnColorBoxes");
@@ -78,6 +78,8 @@ namespace CollectJoe
         int rating = _optionsForm.GetValue("nudRatingBoxtype" + i);
         _boxRatings.Add(color, rating);
       }
+
+      BuildButtonField();
     }
 
     /// <summary>
@@ -89,7 +91,7 @@ namespace CollectJoe
     public void StopGame()
     {
       tmrGame.Stop();
-      if (_playerScore <= 0)
+      if (_playerScore < 0)
       {
         ShowGameOverBox();
       }
@@ -154,11 +156,7 @@ namespace CollectJoe
     /// <param name="e">Die Event Argumente</param>
     private void BtnHideOptions_Click(object sender, EventArgs e)
     {
-      if (!((frmOptions)sender).Visible)
-      {
-        SetOptions();
-        BuildButtonField();
-      }
+      if (!((frmOptions)sender).Visible) SetupPlayField();
     }
 
     /// <summary>

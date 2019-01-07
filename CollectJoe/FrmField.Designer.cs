@@ -95,6 +95,7 @@
       // 
       // tmrGame
       // 
+      this.tmrGame.Interval = 1000;
       this.tmrGame.Tick += new System.EventHandler(this.TmrGame_Tick);
       // 
       // frmField

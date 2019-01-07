@@ -36,8 +36,7 @@ namespace CollectJoe.Views
       txtScoreList.ResetText();
 
       string[] scoreList = GetScoreFileContent();
-      if (scoreList != null) PopulateScoreList(scoreList);
-      else txtScoreList.Text = "Rangliste nicht verfügbar.";
+      if (scoreList == null || !PopulateScoreList(scoreList)) txtScoreList.Text = "Rangliste nicht verfügbar.";
     }
 
     /// <summary>
@@ -45,25 +44,33 @@ namespace CollectJoe.Views
     /// entsprechenden Textbox wider
     /// </summary>
     /// <param name="scoreList">Array von Highscores in der Form name;punktzahl</note></param>
-    private void PopulateScoreList(string[] scoreList)
+    private bool PopulateScoreList(string[] scoreList)
     {
       List<Tuple<string, int>> scores = new List<Tuple<string, int>>();
 
       foreach (string entry in scoreList)
       {
-        if (!String.IsNullOrWhiteSpace(entry))
+        if (!String.IsNullOrWhiteSpace(entry) && entry.Contains(";"))
         {
           string name = entry.Trim().Split(';')[0];
-          int score = Int32.Parse(entry.Trim().Split(';')[1]);
-          scores.Add(new Tuple<string, int>(name, score));
+
+          if (Int32.TryParse(entry.Trim().Split(';')[1], out int score))
+            scores.Add(new Tuple<string, int>(name, score));
         }
       }
 
-      scores.Sort((s1, s2) => s2.Item2.CompareTo(s1.Item2));
-      _highestScore = scores[0].Item2;
+      if (scores.Count > 0)
+      {
+        scores.Sort((s1, s2) => s2.Item2.CompareTo(s1.Item2));
+        _highestScore = scores[0].Item2;
 
-      foreach (Tuple<string, int> entry in scores)
-        txtScoreList.AppendText(string.Format("{0};{1}\r\n", entry.Item1, entry.Item2));
+        foreach (Tuple<string, int> entry in scores)
+          txtScoreList.AppendText(string.Format("{0};{1}\r\n", entry.Item1, entry.Item2));
+
+        return true;
+      }
+
+      return false;
     }
 
     /// <summary>
@@ -80,6 +87,7 @@ namespace CollectJoe.Views
       catch (IOException) { }
       catch (ArgumentException) { }
 
+      _highestScore = 0;
       return null;
     }
 

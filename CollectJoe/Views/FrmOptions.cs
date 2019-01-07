@@ -40,7 +40,7 @@ namespace CollectJoe.Views
     /// <returns>Retourniert die (maximale) Spielzeit in Millisekunden</returns>
     public int GetMaxPlaytime()
     {
-      return (int)nudMaxPlaytime.Value * 1000;
+      return (int)nudMaxPlaytime.Value;
     }
 
     /// <summary>

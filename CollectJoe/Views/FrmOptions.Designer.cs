@@ -420,12 +420,12 @@
       // 
       this.nudMaxPlaytime.Location = new System.Drawing.Point(119, 55);
       this.nudMaxPlaytime.Maximum = new decimal(new int[] {
-            300,
+            300000,
             0,
             0,
             0});
       this.nudMaxPlaytime.Minimum = new decimal(new int[] {
-            5,
+            5000,
             0,
             0,
             0});
@@ -433,7 +433,7 @@
       this.nudMaxPlaytime.Size = new System.Drawing.Size(120, 20);
       this.nudMaxPlaytime.TabIndex = 6;
       this.nudMaxPlaytime.Value = new decimal(new int[] {
-            40,
+            39999,
             0,
             0,
             0});
@@ -443,9 +443,9 @@
       this.lblMaxPlaytime.AutoSize = true;
       this.lblMaxPlaytime.Location = new System.Drawing.Point(10, 57);
       this.lblMaxPlaytime.Name = "lblMaxPlaytime";
-      this.lblMaxPlaytime.Size = new System.Drawing.Size(71, 13);
+      this.lblMaxPlaytime.Size = new System.Drawing.Size(79, 13);
       this.lblMaxPlaytime.TabIndex = 100;
-      this.lblMaxPlaytime.Text = "Spieldauer (s)";
+      this.lblMaxPlaytime.Text = "Spieldauer (ms)";
       // 
       // lblGame
       // 

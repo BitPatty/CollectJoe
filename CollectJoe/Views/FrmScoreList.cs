@@ -43,7 +43,7 @@ namespace CollectJoe.Views
     /// Sortiert die Rangliste und gibt sie in der
     /// entsprechenden Textbox wider
     /// </summary>
-    /// <param name="scoreList">Array von Highscores in der Form name;punktzahl</note></param>
+    /// <param name="scoreList">Array von Highscores in der Form &lt;name&gt;;&lt;punktzahl&gt;</param>
     private bool PopulateScoreList(string[] scoreList)
     {
       List<Tuple<string, int>> scores = new List<Tuple<string, int>>();

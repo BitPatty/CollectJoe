@@ -41,14 +41,13 @@
       // pnlPlayField
       // 
       this.pnlPlayField.Location = new System.Drawing.Point(12, 12);
-      this.pnlPlayField.Margin = new System.Windows.Forms.Padding(0);
       this.pnlPlayField.Name = "pnlPlayField";
-      this.pnlPlayField.Size = new System.Drawing.Size(935, 413);
+      this.pnlPlayField.Size = new System.Drawing.Size(960, 486);
       this.pnlPlayField.TabIndex = 0;
       // 
       // btnStart
       // 
-      this.btnStart.Location = new System.Drawing.Point(12, 431);
+      this.btnStart.Location = new System.Drawing.Point(12, 504);
       this.btnStart.Name = "btnStart";
       this.btnStart.Size = new System.Drawing.Size(114, 23);
       this.btnStart.TabIndex = 1;
@@ -59,7 +58,7 @@
       // lblScore
       // 
       this.lblScore.AutoSize = true;
-      this.lblScore.Location = new System.Drawing.Point(148, 436);
+      this.lblScore.Location = new System.Drawing.Point(167, 507);
       this.lblScore.Name = "lblScore";
       this.lblScore.Size = new System.Drawing.Size(67, 13);
       this.lblScore.TabIndex = 2;
@@ -68,14 +67,14 @@
       // txtScore
       // 
       this.txtScore.Enabled = false;
-      this.txtScore.Location = new System.Drawing.Point(221, 433);
+      this.txtScore.Location = new System.Drawing.Point(240, 504);
       this.txtScore.Name = "txtScore";
       this.txtScore.Size = new System.Drawing.Size(100, 20);
       this.txtScore.TabIndex = 3;
       // 
       // btnOptions
       // 
-      this.btnOptions.Location = new System.Drawing.Point(833, 431);
+      this.btnOptions.Location = new System.Drawing.Point(857, 504);
       this.btnOptions.Name = "btnOptions";
       this.btnOptions.Size = new System.Drawing.Size(114, 23);
       this.btnOptions.TabIndex = 1;
@@ -85,7 +84,7 @@
       // 
       // btnScore
       // 
-      this.btnScore.Location = new System.Drawing.Point(713, 431);
+      this.btnScore.Location = new System.Drawing.Point(737, 504);
       this.btnScore.Name = "btnScore";
       this.btnScore.Size = new System.Drawing.Size(114, 23);
       this.btnScore.TabIndex = 1;
@@ -102,7 +101,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(959, 464);
+      this.ClientSize = new System.Drawing.Size(983, 557);
       this.Controls.Add(this.txtScore);
       this.Controls.Add(this.lblScore);
       this.Controls.Add(this.btnScore);

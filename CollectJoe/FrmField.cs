@@ -128,7 +128,7 @@ namespace CollectJoe
             Name = String.Format("btn_{0}", (i * _boxCountHorizontal) + k),
             Height = _boxHeight,
             Width = _boxWidth,
-            Location = new Point(k * _boxWidth, i * _boxHeight),
+            Location = new Point((k * _boxWidth) + _gamePanelMargin[0], (i * _boxHeight) + _gamePanelMargin[1]),
             Text = "",
             BackColor = _boxColor,
           };

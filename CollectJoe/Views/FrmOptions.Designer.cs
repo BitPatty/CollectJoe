@@ -80,7 +80,7 @@
       this.lblSettings.Location = new System.Drawing.Point(6, 13);
       this.lblSettings.Name = "lblSettings";
       this.lblSettings.Size = new System.Drawing.Size(190, 31);
-      this.lblSettings.TabIndex = 0;
+      this.lblSettings.TabIndex = 100;
       this.lblSettings.Text = "Einstellungen";
       // 
       // gpxPlayField
@@ -133,7 +133,7 @@
             0});
       this.nudHorizontal.Name = "nudHorizontal";
       this.nudHorizontal.Size = new System.Drawing.Size(120, 20);
-      this.nudHorizontal.TabIndex = 2;
+      this.nudHorizontal.TabIndex = 1;
       this.nudHorizontal.Value = new decimal(new int[] {
             20,
             0,
@@ -146,7 +146,7 @@
       this.lblVertical.Location = new System.Drawing.Point(10, 85);
       this.lblVertical.Name = "lblVertical";
       this.lblVertical.Size = new System.Drawing.Size(74, 13);
-      this.lblVertical.TabIndex = 1;
+      this.lblVertical.TabIndex = 100;
       this.lblVertical.Text = "Boxen vertikal";
       // 
       // lblHorizontal
@@ -155,7 +155,7 @@
       this.lblHorizontal.Location = new System.Drawing.Point(10, 57);
       this.lblHorizontal.Name = "lblHorizontal";
       this.lblHorizontal.Size = new System.Drawing.Size(85, 13);
-      this.lblHorizontal.TabIndex = 1;
+      this.lblHorizontal.TabIndex = 100;
       this.lblHorizontal.Text = "Boxen horizontal";
       // 
       // lblPlayField
@@ -165,7 +165,7 @@
       this.lblPlayField.Location = new System.Drawing.Point(6, 16);
       this.lblPlayField.Name = "lblPlayField";
       this.lblPlayField.Size = new System.Drawing.Size(91, 24);
-      this.lblPlayField.TabIndex = 0;
+      this.lblPlayField.TabIndex = 100;
       this.lblPlayField.Text = "Spielfeld";
       // 
       // gpxRatings
@@ -180,7 +180,7 @@
       this.gpxRatings.Location = new System.Drawing.Point(12, 190);
       this.gpxRatings.Name = "gpxRatings";
       this.gpxRatings.Size = new System.Drawing.Size(256, 150);
-      this.gpxRatings.TabIndex = 1;
+      this.gpxRatings.TabIndex = 2;
       this.gpxRatings.TabStop = false;
       // 
       // nudRatingBoxtype2
@@ -193,7 +193,7 @@
             -2147483648});
       this.nudRatingBoxtype2.Name = "nudRatingBoxtype2";
       this.nudRatingBoxtype2.Size = new System.Drawing.Size(120, 20);
-      this.nudRatingBoxtype2.TabIndex = 2;
+      this.nudRatingBoxtype2.TabIndex = 5;
       this.nudRatingBoxtype2.Value = new decimal(new int[] {
             50,
             0,
@@ -210,7 +210,7 @@
             -2147483648});
       this.nudRatingBoxtype1.Name = "nudRatingBoxtype1";
       this.nudRatingBoxtype1.Size = new System.Drawing.Size(120, 20);
-      this.nudRatingBoxtype1.TabIndex = 2;
+      this.nudRatingBoxtype1.TabIndex = 4;
       this.nudRatingBoxtype1.Value = new decimal(new int[] {
             10,
             0,
@@ -227,7 +227,7 @@
             -2147483648});
       this.nudRatingBoxtype0.Name = "nudRatingBoxtype0";
       this.nudRatingBoxtype0.Size = new System.Drawing.Size(120, 20);
-      this.nudRatingBoxtype0.TabIndex = 2;
+      this.nudRatingBoxtype0.TabIndex = 3;
       this.nudRatingBoxtype0.Value = new decimal(new int[] {
             1,
             0,
@@ -240,7 +240,7 @@
       this.lblRatingBoxtype2.Location = new System.Drawing.Point(10, 115);
       this.lblRatingBoxtype2.Name = "lblRatingBoxtype2";
       this.lblRatingBoxtype2.Size = new System.Drawing.Size(51, 13);
-      this.lblRatingBoxtype2.TabIndex = 1;
+      this.lblRatingBoxtype2.TabIndex = 100;
       this.lblRatingBoxtype2.Text = "3. Boxtyp";
       // 
       // lblRatingBoxtype1
@@ -249,7 +249,7 @@
       this.lblRatingBoxtype1.Location = new System.Drawing.Point(10, 85);
       this.lblRatingBoxtype1.Name = "lblRatingBoxtype1";
       this.lblRatingBoxtype1.Size = new System.Drawing.Size(51, 13);
-      this.lblRatingBoxtype1.TabIndex = 1;
+      this.lblRatingBoxtype1.TabIndex = 100;
       this.lblRatingBoxtype1.Text = "2. Boxtyp";
       // 
       // lblRatingBoxtype0
@@ -258,7 +258,7 @@
       this.lblRatingBoxtype0.Location = new System.Drawing.Point(10, 57);
       this.lblRatingBoxtype0.Name = "lblRatingBoxtype0";
       this.lblRatingBoxtype0.Size = new System.Drawing.Size(51, 13);
-      this.lblRatingBoxtype0.TabIndex = 1;
+      this.lblRatingBoxtype0.TabIndex = 100;
       this.lblRatingBoxtype0.Text = "1. Boxtyp";
       // 
       // lblRatings
@@ -268,7 +268,7 @@
       this.lblRatings.Location = new System.Drawing.Point(6, 16);
       this.lblRatings.Name = "lblRatings";
       this.lblRatings.Size = new System.Drawing.Size(113, 24);
-      this.lblRatings.TabIndex = 0;
+      this.lblRatings.TabIndex = 100;
       this.lblRatings.Text = "Wertungen";
       // 
       // gpxColors
@@ -287,7 +287,7 @@
       this.gpxColors.Location = new System.Drawing.Point(274, 62);
       this.gpxColors.Name = "gpxColors";
       this.gpxColors.Size = new System.Drawing.Size(256, 278);
-      this.gpxColors.TabIndex = 1;
+      this.gpxColors.TabIndex = 4;
       this.gpxColors.TabStop = false;
       // 
       // btnColorBoxtype0
@@ -296,7 +296,7 @@
       this.btnColorBoxtype0.Location = new System.Drawing.Point(121, 180);
       this.btnColorBoxtype0.Name = "btnColorBoxtype0";
       this.btnColorBoxtype0.Size = new System.Drawing.Size(114, 23);
-      this.btnColorBoxtype0.TabIndex = 2;
+      this.btnColorBoxtype0.TabIndex = 9;
       this.btnColorBoxtype0.UseVisualStyleBackColor = false;
       this.btnColorBoxtype0.Click += new System.EventHandler(this.BtnColor_Click);
       // 
@@ -306,7 +306,7 @@
       this.btnColorBoxes.Location = new System.Drawing.Point(121, 52);
       this.btnColorBoxes.Name = "btnColorBoxes";
       this.btnColorBoxes.Size = new System.Drawing.Size(114, 23);
-      this.btnColorBoxes.TabIndex = 2;
+      this.btnColorBoxes.TabIndex = 7;
       this.btnColorBoxes.UseVisualStyleBackColor = false;
       this.btnColorBoxes.Click += new System.EventHandler(this.BtnColor_Click);
       // 
@@ -316,7 +316,7 @@
       this.btnColorBoxtype2.Location = new System.Drawing.Point(121, 238);
       this.btnColorBoxtype2.Name = "btnColorBoxtype2";
       this.btnColorBoxtype2.Size = new System.Drawing.Size(114, 23);
-      this.btnColorBoxtype2.TabIndex = 2;
+      this.btnColorBoxtype2.TabIndex = 11;
       this.btnColorBoxtype2.UseVisualStyleBackColor = false;
       this.btnColorBoxtype2.Click += new System.EventHandler(this.BtnColor_Click);
       // 
@@ -326,7 +326,7 @@
       this.btnColorBoxtype1.Location = new System.Drawing.Point(121, 208);
       this.btnColorBoxtype1.Name = "btnColorBoxtype1";
       this.btnColorBoxtype1.Size = new System.Drawing.Size(114, 23);
-      this.btnColorBoxtype1.TabIndex = 2;
+      this.btnColorBoxtype1.TabIndex = 10;
       this.btnColorBoxtype1.UseVisualStyleBackColor = false;
       this.btnColorBoxtype1.Click += new System.EventHandler(this.BtnColor_Click);
       // 
@@ -336,7 +336,7 @@
       this.btnColorField.Location = new System.Drawing.Point(121, 80);
       this.btnColorField.Name = "btnColorField";
       this.btnColorField.Size = new System.Drawing.Size(114, 23);
-      this.btnColorField.TabIndex = 2;
+      this.btnColorField.TabIndex = 8;
       this.btnColorField.UseVisualStyleBackColor = false;
       this.btnColorField.Click += new System.EventHandler(this.BtnColor_Click);
       // 
@@ -346,7 +346,7 @@
       this.lblColorBoxtype2.Location = new System.Drawing.Point(10, 243);
       this.lblColorBoxtype2.Name = "lblColorBoxtype2";
       this.lblColorBoxtype2.Size = new System.Drawing.Size(51, 13);
-      this.lblColorBoxtype2.TabIndex = 1;
+      this.lblColorBoxtype2.TabIndex = 100;
       this.lblColorBoxtype2.Text = "3. Boxtyp";
       // 
       // lblColorBoxtype1
@@ -355,7 +355,7 @@
       this.lblColorBoxtype1.Location = new System.Drawing.Point(10, 213);
       this.lblColorBoxtype1.Name = "lblColorBoxtype1";
       this.lblColorBoxtype1.Size = new System.Drawing.Size(51, 13);
-      this.lblColorBoxtype1.TabIndex = 1;
+      this.lblColorBoxtype1.TabIndex = 100;
       this.lblColorBoxtype1.Text = "2. Boxtyp";
       // 
       // lblColorField
@@ -364,7 +364,7 @@
       this.lblColorField.Location = new System.Drawing.Point(10, 85);
       this.lblColorField.Name = "lblColorField";
       this.lblColorField.Size = new System.Drawing.Size(47, 13);
-      this.lblColorField.TabIndex = 1;
+      this.lblColorField.TabIndex = 100;
       this.lblColorField.Text = "Spielfeld";
       // 
       // lblColorBoxtype0
@@ -373,7 +373,7 @@
       this.lblColorBoxtype0.Location = new System.Drawing.Point(10, 185);
       this.lblColorBoxtype0.Name = "lblColorBoxtype0";
       this.lblColorBoxtype0.Size = new System.Drawing.Size(51, 13);
-      this.lblColorBoxtype0.TabIndex = 1;
+      this.lblColorBoxtype0.TabIndex = 100;
       this.lblColorBoxtype0.Text = "1. Boxtyp";
       // 
       // lblColorBoxes
@@ -382,7 +382,7 @@
       this.lblColorBoxes.Location = new System.Drawing.Point(10, 57);
       this.lblColorBoxes.Name = "lblColorBoxes";
       this.lblColorBoxes.Size = new System.Drawing.Size(37, 13);
-      this.lblColorBoxes.TabIndex = 1;
+      this.lblColorBoxes.TabIndex = 100;
       this.lblColorBoxes.Text = "Boxen";
       // 
       // lblColors
@@ -392,7 +392,7 @@
       this.lblColors.Location = new System.Drawing.Point(6, 16);
       this.lblColors.Name = "lblColors";
       this.lblColors.Size = new System.Drawing.Size(77, 24);
-      this.lblColors.TabIndex = 0;
+      this.lblColors.TabIndex = 100;
       this.lblColors.Text = "Farben";
       // 
       // btnUse
@@ -400,7 +400,7 @@
       this.btnUse.Location = new System.Drawing.Point(416, 409);
       this.btnUse.Name = "btnUse";
       this.btnUse.Size = new System.Drawing.Size(114, 23);
-      this.btnUse.TabIndex = 2;
+      this.btnUse.TabIndex = 99;
       this.btnUse.Text = "Übernehmen";
       this.btnUse.UseVisualStyleBackColor = true;
       this.btnUse.Click += new System.EventHandler(this.BtnUse_Click);
@@ -413,7 +413,7 @@
       this.groupBox3.Location = new System.Drawing.Point(12, 346);
       this.groupBox3.Name = "groupBox3";
       this.groupBox3.Size = new System.Drawing.Size(256, 86);
-      this.groupBox3.TabIndex = 1;
+      this.groupBox3.TabIndex = 3;
       this.groupBox3.TabStop = false;
       // 
       // nudMaxPlaytime
@@ -431,7 +431,7 @@
             0});
       this.nudMaxPlaytime.Name = "nudMaxPlaytime";
       this.nudMaxPlaytime.Size = new System.Drawing.Size(120, 20);
-      this.nudMaxPlaytime.TabIndex = 2;
+      this.nudMaxPlaytime.TabIndex = 6;
       this.nudMaxPlaytime.Value = new decimal(new int[] {
             40,
             0,
@@ -444,7 +444,7 @@
       this.lblMaxPlaytime.Location = new System.Drawing.Point(10, 57);
       this.lblMaxPlaytime.Name = "lblMaxPlaytime";
       this.lblMaxPlaytime.Size = new System.Drawing.Size(71, 13);
-      this.lblMaxPlaytime.TabIndex = 1;
+      this.lblMaxPlaytime.TabIndex = 100;
       this.lblMaxPlaytime.Text = "Spieldauer (s)";
       // 
       // lblGame
@@ -454,7 +454,7 @@
       this.lblGame.Location = new System.Drawing.Point(6, 16);
       this.lblGame.Name = "lblGame";
       this.lblGame.Size = new System.Drawing.Size(57, 24);
-      this.lblGame.TabIndex = 0;
+      this.lblGame.TabIndex = 100;
       this.lblGame.Text = "Spiel";
       // 
       // frmOptions

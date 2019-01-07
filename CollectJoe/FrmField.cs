@@ -188,7 +188,7 @@ namespace CollectJoe
       _playerScore = 0;
       txtScore.Text = _playerScore.ToString();
       _currentPlayTime = 0;
-      _boxList[_lastFlippedButtonIndex].BackColor = _boxColor;
+      if (_lastFlippedButtonIndex < _boxList.Count) _boxList[_lastFlippedButtonIndex].BackColor = _boxColor;
       _lastFlippedButtonIndex = 0;
       _editScoreForm.ReSetNameAndScore();
       tmrGame.Start();
